@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market Info - Smart Crop Advisory</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body class="bg-light">
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">🌾 Smart Crop Advisory</a>
+    <div class="d-flex align-items-center">
+      <a class="btn btn-outline-light btn-sm me-2" href="dashboard.html">Dashboard</a>
+      <a class="btn btn-outline-light btn-sm me-2" href="crops.html">Crop Guidance</a>
+      <a class="btn btn-outline-light btn-sm me-2" href="weather.html">Weather</a>
+      <a class="btn btn-outline-light btn-sm" href="feedback.html">Feedback</a>
+      <select id="langToggle" class="form-select form-select-sm ms-3" style="width: 120px;">
+        <option value="en">English</option>
+        <option value="hi">हिंदी</option>
+      </select>
+    </div>
+  </div>
+</nav>
+
+<!-- Market Section -->
+<div class="container mt-5">
+  <h2 id="pageTitle" class="text-success fw-bold text-center mb-4">📈 Market Info</h2>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card shadow-sm p-3 text-center hover-scale">
+        <h5 id="wheatTitle" class="fw-bold">Wheat</h5>
+        <p id="wheatDesc">₹2200/quintal</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card shadow-sm p-3 text-center hover-scale">
+        <h5 id="riceTitle" class="fw-bold">Rice</h5>
+        <p id="riceDesc">₹2500/quintal</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card shadow-sm p-3 text-center hover-scale">
+        <h5 id="maizeTitle" class="fw-bold">Maize</h5>
+        <p id="maizeDesc">₹1800/quintal</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="bg-success text-white text-center py-3 mt-5">
+  <p class="mb-0">&copy; 2025 Smart Crop Advisory | Built for SIH</p>
+</footer>
+
+<script>
+const translations = {
+  en: {
+    pageTitle: "📈 Market Info",
+    wheatTitle: "Wheat",
+    wheatDesc: "₹2200/quintal",
+    riceTitle: "Rice",
+    riceDesc: "₹2500/quintal",
+    maizeTitle: "Maize",
+    maizeDesc: "₹1800/quintal"
+  },
+  hi: {
+    pageTitle: "📈 बाजार जानकारी",
+    wheatTitle: "गेहूँ",
+    wheatDesc: "₹2200/क्विंटल",
+    riceTitle: "चावल",
+    riceDesc: "₹2500/क्विंटल",
+    maizeTitle: "मक्का",
+    maizeDesc: "₹1800/क्विंटल"
+  }
+};
+
+const langToggle = document.getElementById("langToggle");
+langToggle.addEventListener("change", function(){
+  const lang = this.value;
+  for(const id in translations[lang]){
+    const el = document.getElementById(id);
+    if(el) el.innerText = translations[lang][id];
+  }
+});
+</script>
+
+</body>
+</html>
